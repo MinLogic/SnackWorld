@@ -17,4 +17,7 @@ public class Goods {
     public int getPrice() {
         return price;
     }
+
+
+    // 원시 값 포장, 유효성 검사
 }

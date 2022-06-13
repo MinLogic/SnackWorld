@@ -18,29 +18,17 @@ public class GoodsList {
         return itemList.size();
     }
 
-    public boolean isContains(String itemName, String goodsName){
-        if(itemName.contains(goodsName)){
-            return true;
-        }
-        return false;
-    }
 
-    public boolean isSame(String itemName, String goodsName){
-        if(itemName.equals(goodsName)){
-            return true;
-        }
-        return false;
 
-    }
     public void addGoods(Goods goods) {
         itemList.add(goods);
     }
 
-    public ArrayList<Goods> retrieveGoods(String goodsName){
+    public ArrayList<Goods> searchGoodsList(String goodsName){
         ArrayList<Goods> retrievedList = new ArrayList<>();
         for(Goods item : itemList){
             String itemName = item.getGoodsName();
-            if(isContains(itemName, goodsName)){
+            if(itemName.contains(goodsName)){
                 retrievedList.add(item);
             }
         }
@@ -53,17 +41,17 @@ public class GoodsList {
         for(int i=0; i<itemList.size(); i++){
             Goods item = itemList.get(i);
             String itemName = item.getGoodsName();
-            if(isSame(itemName, goodsName)){
+            if(itemName.equals(goodsName)){
                 itemList.remove(item);
             }
         }
     }
 
-    public Goods getGoods(String goodsName) {
+    public Goods retrieveGoods(String goodsName) {
         for(int i=0; i<itemList.size(); i++){
             Goods item = itemList.get(i);
             String itemName = item.getGoodsName();
-            if(isSame(itemName, goodsName)){
+            if(itemName.equals(goodsName)){
                 return item;
             }
         }
