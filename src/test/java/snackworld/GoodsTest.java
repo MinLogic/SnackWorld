@@ -1,25 +1,26 @@
 package test.java.snackworld;
 
-import main.java.snackworld.Cart;
-import main.java.snackworld.Goods;
+import main.java.snackworld.*;
+
 import static org.junit.Assert.*;
 
-import main.java.snackworld.GoodsList;
-import main.java.snackworld.Standard;
 import org.junit.Before;
 import org.junit.Test;
 
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 public class GoodsTest {
     GoodsList goodsList = GoodsList.getInstance();
     Cart cart;
     Standard standard;
+    OrderList orderList;
 
     @Before
     public void before(){
+        orderList = OrderList.getOrderList();
         cart = new Cart();
         cart.addCart(new Goods("itemA", 3000));
         cart.addCart(new Goods("itemA", 3000));
@@ -57,7 +58,14 @@ public class GoodsTest {
 
     @Test
     public void testTest(){
-        standard.getStandard();
-        standard.setStandard(null, null, null);
+        Goods goods = goodsList.retrieveGoods("itemA");
+        List<Goods> cartList = cart.getCartList();
+        User user = new CommonUser();
+        int index = cartList.indexOf(goods);
+        if(index == -1){
+            System.out.println("메시지");
+            return;
+        }
+        orderList.addOrderList(new Order(user, (List<Goods>) cartList.get(index)));
     }
 }
