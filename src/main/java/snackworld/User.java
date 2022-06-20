@@ -3,9 +3,14 @@ package main.java.snackworld;
 public class User {
     private String userId;
     private String userPw;
-    // 각 권한의 사용자 별로 유저 생성?
-    // admin, approver, general user
 
+    public String getUserId() {
+        return userId;
+    }
+
+    public String getUserPw() {
+        return userPw;
+    }
 
     /*
     상태 = 단순한 값(속성)과 다른 객체(링크)로 표현할 수 있다
