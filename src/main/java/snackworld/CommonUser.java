@@ -3,6 +3,10 @@ package main.java.snackworld;
 public class CommonUser extends User{
     Cart cart = new Cart();
 
+    CommonUser(String userId, String userPw) {
+        super(userId, userPw);
+    }
+
     public void addGoods(Goods goods){
         cart.addCart(goods);
     }

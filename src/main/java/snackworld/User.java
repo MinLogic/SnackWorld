@@ -4,6 +4,11 @@ public class User {
     private String userId;
     private String userPw;
 
+    User(String userId, String userPw){
+        this.userId = userId;
+        this.userPw = userPw;
+    }
+
     public String getUserId() {
         return userId;
     }
